@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ProfileActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/showView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/profileTextViewName"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="이름" />
+
+            <TextView
+                android:id="@+id/profileTextViewDevice"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/prfileTextViewContents"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:text="TextView" />
+
+            <Button
+                android:id="@+id/updateButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="수정" />
+
+            <Button
+                android:id="@+id/deleteButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="삭제" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="연결 하기" />
+
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="연결 끊기"
+                    android:visibility="invisible" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/updateView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <EditText
+                android:id="@+id/profileEditTextName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="이름" />
+
+            <TextView
+                android:id="@+id/profileTextViewDevice1"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="기기" />
+
+            <EditText
+                android:id="@+id/profileEditTextContents"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="참고사항" />
+
+            <Button
+                android:id="@+id/profileUpdateButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="수정하기" />
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>
