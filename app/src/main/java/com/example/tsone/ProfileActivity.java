@@ -15,6 +15,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.SystemClock;
 import android.os.Vibrator;
 import android.util.Log;
@@ -52,7 +53,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     BluetoothAdapter mBluetoothAdapter;
     Set<BluetoothDevice> mPairedDevices;
-    List<String> mListPairedDevices;
+
 
     Handler mBluetoothHandler;
     ConnectedBluetoothThread mThreadConnectedBluetooth;
@@ -92,10 +93,12 @@ public class ProfileActivity extends AppCompatActivity {
 
         textView2.setText(intent.getStringExtra("name"));
         textView4.setText(intent.getStringExtra("contents"));
+
         mac=intent.getStringExtra("mac");
+        textView3.setText(mac);
+        textView.setText(mac);
         editText.setText(intent.getStringExtra("name"));
         editText2.setText(intent.getStringExtra("contents"));
-     //   Toast.makeText(getApplicationContext(), mac, Toast.LENGTH_LONG).show();
 
         Button button=findViewById(R.id.updateButton);
         Button button1=findViewById(R.id.deleteButton);
@@ -104,7 +107,7 @@ public class ProfileActivity extends AppCompatActivity {
         final Button button4=findViewById(R.id.button4);  // 연결하기
         final Button button5=findViewById(R.id.button5);  // 연결 끊기
 
-        mBluetoothHandler = new Handler() {
+        mBluetoothHandler = new Handler(Looper.getMainLooper()) {
             public void handleMessage(android.os.Message msg) {
                 if (msg.what == BT_MESSAGE_READ) {
                     String readMessage = null;
@@ -113,7 +116,7 @@ public class ProfileActivity extends AppCompatActivity {
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }
-//                    mTvReceiveData.setText(readMessage);
+
 
                     Toast.makeText(getApplicationContext(), readMessage, Toast.LENGTH_LONG).show();
 
@@ -148,8 +151,7 @@ public class ProfileActivity extends AppCompatActivity {
                     else if(readMessage.charAt(0)=='2'){  //낙상
                         Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
                         Ringtone ringtone=RingtoneManager.getRingtone(getApplicationContext(),notification);
-                        //     AudioAttributes audioAttributes = new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_ALARM).build();
-                        //   ringtone.setAudioAttributes(audioAttributes);
+
                         ringtone.play();
 
 
@@ -161,11 +163,11 @@ public class ProfileActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 Toast.makeText(getApplicationContext(), "낙상확인"  , Toast.LENGTH_LONG).show();
-//                                ringtone.stop();
+
                             }
                         });
 
-//
+
                         AlertDialog alertDialog;
                         alertDialog=builder.create();
                         alertDialog.show();
@@ -177,8 +179,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                         Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
                         Ringtone ringtone=RingtoneManager.getRingtone(getApplicationContext(),notification);
-                        //     AudioAttributes audioAttributes = new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_ALARM).build();
-                        //   ringtone.setAudioAttributes(audioAttributes);
+
                         ringtone.play();
 
 
@@ -189,12 +190,14 @@ public class ProfileActivity extends AppCompatActivity {
                         builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
+
+
                                 Toast.makeText(getApplicationContext(), "배변/배뇨확인"  , Toast.LENGTH_LONG).show();
-//                                ringtone.stop();
+
                             }
                         });
 
-//
+
                         AlertDialog alertDialog;
                         alertDialog=builder.create();
                         alertDialog.show();

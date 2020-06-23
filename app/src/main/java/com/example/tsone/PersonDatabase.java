@@ -135,11 +135,7 @@ public class PersonDatabase {
                 Log.e(TAG, "Exception in CREATE_SQL", ex);
 
             }
-//            insertRecord(_db, "홍길동", 1, "안드로이드 기본서로 이지스퍼블리싱 출판사에서 출판했습니다.");
-//            insertRecord(_db, "김재현", 2, "Oreilly Associates Inc에서 2011년 04월에 출판했습니다.");
-//            insertRecord(_db, "김영희", 3, "에이콘출판사에서 2011년 10월에 출판했습니다.");
-//            insertRecord(_db, "박승희", 4, "위키북스에서 2011년 09월에 출판했습니다.");
-//            insertRecord(_db, "나정연", 5, "DW Wave에서 2010년 10월에 출판했습니다.");
+
         } // oncreate end
 
         public void onOpen(SQLiteDatabase db) {

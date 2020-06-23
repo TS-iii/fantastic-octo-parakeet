@@ -5,13 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothSocket;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.SystemClock;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -19,12 +16,9 @@ import android.widget.Toast;
 
 import com.pedro.library.AutoPermissions;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+
 import java.util.ArrayList;
-import java.util.Set;
-import java.util.UUID;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -135,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.setItems(result);
 
         recyclerView.setAdapter(adapter);
-     //   TsBluetoothConnect();
+
 
         adapter.setOnItemClickListener(new OnPersonItemClickListener() {
             @Override
@@ -168,61 +162,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-//    public void TsBluetoothConnect(){
-//
-//        mBluetoothAdapter=BluetoothAdapter.getDefaultAdapter();
-//        ArrayList<BluetoothDevice> dd=new ArrayList<>();
-//
-//        if(!result.isEmpty()){
-//
-//            if(mBluetoothAdapter.isEnabled()){
-//
-//                mPairedDevices=mBluetoothAdapter.getBondedDevices();
-//
-//                for(BluetoothDevice device : mPairedDevices){
-//
-//                    String m=device.getAddress();
-//                    int t=1;
-//                    for(PersonInfo n : result){
-//
-//                        if(n.getMac().equals(m))
-//                        {t=0; break;}
-//                    }
-//
-//                    if(t==0){  dd.add(device);}
-//
-//                }
-//
-//
-//                for(BluetoothDevice d : dd) {
-//                    try {
-//                            BluetoothSocket bs=d.createRfcommSocketToServiceRecord(BT_UUID);
-//                            bs.connect();
-//                            mBluetoothSocket.add(bs);
-//
-//                            ConnectedBluetoothThread aa=new ConnectedBluetoothThread(bs);
-//                        mThreadConnectedBluetooth.add(aa);
-//                            aa.start();
-//
-//                    } catch (IOException e) {
-//                        Toast.makeText(getApplicationContext(), "블루투스 연결 중 오류가 발생했습니다.", Toast.LENGTH_LONG).show();
-//                    }
-//
-//                }
-//            }
-//
-//
-//        }
-//
-//
-//
-//
-//
-//
-//
-//
-//    }
-//
+
 
 
 }
